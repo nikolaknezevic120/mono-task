@@ -5,9 +5,8 @@ import productStore from './ProductStore';
 
 class CartStore {
   cart = {};
-  productStore; // Referenca na ProductStore
+  productStore; 
 
-  // Dodajte ova polja za korisničke informacije
   userInfo = {
     firstName: "",
     lastName: "",
@@ -21,7 +20,7 @@ class CartStore {
 
     makeObservable(this, {
       cart: observable,
-      userInfo: observable, // Dodajte userInfo kao observable
+      userInfo: observable, 
       addToCart: action,
       handleOrder: action,
       setFirstName: action,
@@ -49,12 +48,10 @@ class CartStore {
       products: {}
     };
 
-    // Iterirajte kroz trenutnu košaricu i ažurirajte količinu u bazi podataka
     for (const productId in this.cart) {
       const quantity = this.cart[productId].quantity;
       updatedCart.products[productId] = { quantity };
 
-      // Također ažurirajte stanje available u productStore
       const product = this.productStore.products.find((p) => p.id === productId);
       if (product) {
         const newAvailable = product.available - quantity;
@@ -67,13 +64,12 @@ class CartStore {
     try {
       await push(cartRef, updatedCart);
       console.log("Order handled and cart updated in the database.");
-      this.cart = {}; // Očistite košaricu nakon ažuriranja u bazi podataka
+      this.cart = {}; 
     } catch (error) {
       console.error("Error updating cart in the database:", error);
     }
   }
 
-  // Akcije za postavljanje korisničkih informacija
   setFirstName(firstName) {
     this.userInfo.firstName = firstName;
   }

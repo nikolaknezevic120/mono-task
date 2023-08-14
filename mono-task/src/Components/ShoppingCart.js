@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { useCartStore } from "../Stores/CartStore";
-import { useProductStore } from "../Stores/ProductStore"; 
 
 const ShoppingCart = observer(() => {
   const cartStore = useCartStore();
