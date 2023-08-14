@@ -21,6 +21,8 @@ const DeleteProductForm = observer(() => {
       console.error("Error deleting product:", error);
       setDeleteError("Error deleting product: " + error.message);
     }
+
+    window.location.reload();
   };
 
   return (

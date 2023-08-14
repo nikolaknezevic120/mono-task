@@ -22,6 +22,8 @@ const AddProductForm = observer(() => {
     } catch (error) {
       console.error("Error adding product:", error);
     }
+
+    window.location.reload();
   };
 
   return (
