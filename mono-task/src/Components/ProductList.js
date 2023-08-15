@@ -26,10 +26,10 @@ const ProductList = observer(() => {
       <ul>
         {productStore.filteredProducts.map((product) => (
           <li key={product.id}>
-            <strong>Id:</strong> {product.id}<br />
+            {/* <strong>Id:</strong> {product.id}<br /> */}
             <strong>Name:</strong> {product.name}<br />
             <strong>Description:</strong> {product.description}<br />
-            <strong>Price:</strong> ${product.price}<br />
+            <strong>Price:</strong> {product.price} €<br />
             <strong>Available:</strong> {isAvailable ? product.available : "Dodali ste u košaricu sve raspoložive artikle!"}<br />
             <strong>Category:</strong> {product.category}<br />
             {/* <strong>Img url:</strong> {product.img}<br /> */}
