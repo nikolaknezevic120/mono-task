@@ -10,6 +10,7 @@ class ProductStore {
   editNewDescription = "";
   editNewAvailable = "";
   editNewImg = "";
+  editNewCategory = "";
   editError = "";
   sortByPriceAsc = false;
   categories = ["kape", "majice", "ostalo"]; 
@@ -33,6 +34,7 @@ class ProductStore {
       editNewDescription: observable,
       editNewAvailable: observable,
       editNewImg: observable,
+      editNewCategory: observable,
       editError: observable,
       sortByPriceAsc: observable,
       newProduct: observable,
@@ -45,6 +47,7 @@ class ProductStore {
       setEditNewDescription: action,
       setEditNewAvailable: action,
       setEditNewImg: action,
+      setEditNewCategory: action,
       setEditError: action,
       toggleSortByPriceAsc: action,
       categories: observable,
@@ -119,6 +122,10 @@ class ProductStore {
 
   setEditNewImg(img){
     this.editNewImg = img;
+  }
+
+  setEditNewCategory(category){
+    this.editNewCategory = category;
   }
 
   setEditError(error) {

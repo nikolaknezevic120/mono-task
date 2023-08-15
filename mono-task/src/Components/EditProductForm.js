@@ -29,6 +29,9 @@ const EditProductForm = observer(() => {
     if (productStore.editNewImg !== "") {
       updates.img = productStore.editNewImg;
     }
+    if (productStore.editNewCategory !== "") {
+      updates.category = productStore.editNewCategory;
+    }
 
     await productStore.updateProduct(productStore.editProductId, updates);
 
@@ -38,6 +41,7 @@ const EditProductForm = observer(() => {
     productStore.setEditNewDescription("");
     productStore.setEditNewAvailable("");
     productStore.setEditNewImg("");
+    productStore.setEditNewCategory("");
     productStore.setEditError(null);
 
     window.location.reload();
@@ -45,7 +49,7 @@ const EditProductForm = observer(() => {
 
   return (
     <div>
-      <h2>Edit Product Price:</h2>
+      <h2>Edit Product:</h2>
       <form onSubmit={handleEditPrice}>
         {productStore.editError && <p style={{ color: "red" }}>{productStore.editError}</p>}
         <label>
@@ -55,16 +59,6 @@ const EditProductForm = observer(() => {
             value={productStore.editProductId}
             onChange={(e) => productStore.setEditProductId(e.target.value)}
             required
-          />
-        </label>
-        <br />
-        <label>
-          New Price:
-          <input
-            type="number"
-            value={productStore.editNewPrice}
-            onChange={(e) => productStore.setEditNewPrice(e.target.value)}
-            step="0.01"
           />
         </label>
         <br />
@@ -93,6 +87,31 @@ const EditProductForm = observer(() => {
             value={productStore.editNewAvailable}
             onChange={(e) => productStore.setEditNewAvailable(e.target.value)}
           />
+        </label>
+        <br />
+        <label>
+          Price:
+          <input
+            type="number"
+            value={productStore.editNewPrice}
+            onChange={(e) => productStore.setEditNewPrice(e.target.value)}
+            step="0.01"
+          />
+        </label>
+        <br />
+        <label>
+          Category:
+          <select
+            value={productStore.editNewCategory}
+            onChange={(e) => productStore.setEditNewCategory(e.target.value)}
+          >
+            <option value="">Select Category</option>
+            {productStore.categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
         </label>
         <br />
         <label>
