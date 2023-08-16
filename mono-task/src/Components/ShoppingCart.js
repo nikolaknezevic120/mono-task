@@ -15,7 +15,6 @@ const ShoppingCart = observer(() => {
           </li>
         ))}
       </ul>
-      
     </div>
   );
 });

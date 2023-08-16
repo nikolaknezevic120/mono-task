@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { observer } from "mobx-react";
 import { useCartStore } from "../Stores/CartStore";
 import { useProductStore } from "../Stores/ProductStore";
@@ -71,13 +73,16 @@ const OrderDetails = observer(() => {
         </label>
         <br />
 
-        <button
+        <Link to="/">
+        <Button
           type="submit"
           onClick={handleOrderClick}
           disabled={cartStore.isOrdering}
+          
         >
           {cartStore.isOrdering ? "Processing..." : "Order"}
-        </button>
+        </Button>
+        </Link>
       </form>
     </div>
   );

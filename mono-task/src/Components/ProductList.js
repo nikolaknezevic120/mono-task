@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { useProductStore } from "../Stores/ProductStore";
 import { useCartStore } from "../Stores/CartStore";
+import '../Style/Shop/shop.css'
 
 const ProductList = observer(() => {
   const productStore = useProductStore();
@@ -22,18 +23,15 @@ const ProductList = observer(() => {
 
   return (
     <div>
-      <h2>Products:</h2>
       <ul>
         {productStore.filteredProducts.map((product) => (
           <li key={product.id}>
-            {/* <strong>Id:</strong> {product.id}<br /> */}
             <strong>Name:</strong> {product.name}<br />
             <strong>Description:</strong> {product.description}<br />
             <strong>Price:</strong> {product.price} €<br />
             <strong>Available:</strong> {isAvailable ? product.available : "Dodali ste u košaricu sve raspoložive artikle!"}<br />
             <strong>Category:</strong> {product.category}<br />
-            {/* <strong>Img url:</strong> {product.img}<br /> */}
-            <img src={product.img} alt={product.name} />
+            <img id="shopImgId" src={product.img} alt={product.name} />
             <button onClick={() => handleAddToCart(product.id)}>Add to cart</button>
           </li>
         ))}

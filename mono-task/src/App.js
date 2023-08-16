@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "mobx-react";
-import AppLayout from "./Layouts/AppLayout";
+import HomePageLayout from "./Layouts/HomePageLayout";
+import AdminPageLayout from "./Layouts/AdminPageLayout";
+import CartPageLayout from "./Layouts/CartPageLayout";
 import { useProductStore } from "./Stores/ProductStore";
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
     <Provider productStore={productStore}>
       <Router>
         <Routes>
-          <Route path="/" element={<AppLayout />} />
+          <Route path="/" element={<HomePageLayout />} />
+          <Route path="/admin" element={<AdminPageLayout />} />
+          <Route path="/orderDetails" element={<CartPageLayout />} />
         </Routes>
       </Router>
     </Provider>

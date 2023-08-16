@@ -5,7 +5,7 @@ import productStore from './ProductStore';
 
 class CartStore {
   cart = {};
-  productStore; 
+  productStore;
 
   userInfo = {
     firstName: "",
@@ -20,7 +20,7 @@ class CartStore {
 
     makeObservable(this, {
       cart: observable,
-      userInfo: observable, 
+      userInfo: observable,
       addToCart: action,
       handleOrder: action,
       setFirstName: action,
@@ -50,7 +50,11 @@ class CartStore {
 
     for (const productId in this.cart) {
       const quantity = this.cart[productId].quantity;
-      updatedCart.products[productId] = { quantity };
+      updatedCart.products[productId] = {
+        orderedQuantity: quantity,
+        productName: this.cart[productId].product.name,
+        price: this.cart[productId].product.price
+      };
 
       const product = this.productStore.products.find((p) => p.id === productId);
       if (product) {
@@ -64,7 +68,7 @@ class CartStore {
     try {
       await push(cartRef, updatedCart);
       console.log("Order handled and cart updated in the database.");
-      this.cart = {}; 
+      this.cart = {};
     } catch (error) {
       console.error("Error updating cart in the database:", error);
     }
