@@ -1,5 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { Container } from "react-bootstrap";
 import AddProductForm from "../Components/AddProductForm";
 import DeleteProductForm from "../Components/DeleteProductForm";
 import EditProductForm from "../Components/EditProductForm";
@@ -9,13 +10,15 @@ const AdminPageLayout = observer(() => {
     return (
 
         <div className="App">
-            <AdminProductList />
-            
-            <AddProductForm />
+            <Container>
+                <AdminProductList />
 
-            <DeleteProductForm />
+                <AddProductForm />
 
-            <EditProductForm />
+                <DeleteProductForm />
+
+                <EditProductForm />
+            </Container>
         </div>
     );
 });

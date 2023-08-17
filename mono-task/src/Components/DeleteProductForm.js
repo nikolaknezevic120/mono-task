@@ -27,7 +27,7 @@ const DeleteProductForm = observer(() => {
 
   return (
     <div>
-      <h2>Delete Product:</h2>
+      <h2>Obriši proizvod:</h2>
       <form onSubmit={handleDeleteProduct}>
         {deleteError && <p style={{ color: "red" }}>{deleteError}</p>}
         <label>

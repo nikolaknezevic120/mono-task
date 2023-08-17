@@ -23,14 +23,16 @@ const Header = observer(() => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href='/'>
-              Home
+              <strong>Početna</strong>
             </Nav.Link>
             <Nav.Link onClick={handleSortByPrice}>
-              Sort by Price {productStore.sortByPriceAsc ? "↑" : "↓"}
+              <strong>Sortiraj po cijeni: </strong>
+              {productStore.sortByPriceAsc ? " od veće prema manjoj" : " od manje prema većoj"}
             </Nav.Link>
             <Nav.Link>
+              <strong>Filtriraj po kategorijama:</strong>
               <select value={productStore.selectedCategory} onChange={handleCategoryChange}>
-                <option value="">All Categories</option>
+                <option value="">Sve kategorije</option>
                 {productStore.categories.map((category) => (
                   <option key={category} value={category}>
                     {category}

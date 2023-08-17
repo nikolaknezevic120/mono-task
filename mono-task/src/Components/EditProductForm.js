@@ -49,7 +49,7 @@ const EditProductForm = observer(() => {
 
   return (
     <div>
-      <h2>Edit Product:</h2>
+      <h2>Uredi podatke o porizvodu:</h2>
       <form onSubmit={handleEditPrice}>
         {productStore.editError && <p style={{ color: "red" }}>{productStore.editError}</p>}
         <label>

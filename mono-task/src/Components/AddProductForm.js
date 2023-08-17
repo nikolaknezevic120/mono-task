@@ -28,7 +28,7 @@ const AddProductForm = observer(() => {
 
   return (
     <div>
-      <h2>Add New Product:</h2>
+      <h2>Dodaj novi proizvod:</h2>
       <form onSubmit={handleAddProduct}>
         <label>
           Name:

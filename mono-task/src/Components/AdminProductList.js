@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
 import { useProductStore } from "../Stores/ProductStore";
+import '../Style/AdminProductList/adminProductList.css';
 
 const AdminProductList = observer(() => {
   const productStore = useProductStore();
@@ -12,11 +13,12 @@ const AdminProductList = observer(() => {
 
   return (
     <div>
-      <h2>Products:</h2>
-      <ul>
+      <h2>Lista proizvoda:</h2>
+      <ul className="adminProductListDiv">
         {productStore.filteredProducts.map((product) => (
           <li key={product.id}>
-            <button onClick={() => handleProductClick(product.id)}>
+            <img id="adminListImg" src={product.img} />
+            <button id="adminBtn" onClick={() => handleProductClick(product.id)}>
               {product.name}
             </button>
             {selectedProductId === product.id && (
@@ -27,7 +29,7 @@ const AdminProductList = observer(() => {
                 <strong>Available:</strong> {product.available} <br />
                 <strong>Category:</strong> {product.category} <br />
                 <strong>Img url:</strong> {product.img} <br />
-                <img src={product.img} alt={product.name} />
+                {/* <img src={product.img} alt={product.name} /> */}
               </div>
             )}
           </li>

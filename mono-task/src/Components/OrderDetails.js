@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { observer } from "mobx-react";
 import { useCartStore } from "../Stores/CartStore";
 import { useProductStore } from "../Stores/ProductStore";
+import '../Style/Cart/cart.css';
 
 const OrderDetails = observer(() => {
   const cartStore = useCartStore();
@@ -17,7 +18,7 @@ const OrderDetails = observer(() => {
   return (
     <div>
       <h2>User Information:</h2>
-      <form onSubmit={handleOrderClick}>
+      <form className="form-container" onSubmit={handleOrderClick}>
         <label>
           First Name:
           <input

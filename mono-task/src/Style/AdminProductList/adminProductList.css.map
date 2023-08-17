@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAA;EAChB,eAAe,EAAE,IAAI;CACxB;;AAED,AAAA,aAAa,CAAA;EACT,KAAK,EAAE,GAAG;CACb;;AAED,AAAA,SAAS,CAAA;EACL,WAAW,EAAE,EAAE;CAClB",
+    "sources": [
+        "adminProductList.scss"
+    ],
+    "names": [],
+    "file": "adminProductList.css"
+}
