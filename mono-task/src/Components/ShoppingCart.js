@@ -1,18 +1,11 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { calculateTotalPrice } from "../Common/calculateTotalPrice";
 import { useCartStore } from "../Stores/CartStore";
 
 const ShoppingCart = observer(() => {
   const cartStore = useCartStore();
-
-  const calculateTotalPrice = () => {
-    let total = 0;
-    Object.keys(cartStore.cart).forEach((productId) => {
-      const item = cartStore.cart[productId];
-      total += item.quantity * item.product.price;
-    });
-    return total;
-  };
+  const totalAmount = calculateTotalPrice(cartStore.cart);  
 
   return (
     <div>
@@ -25,7 +18,7 @@ const ShoppingCart = observer(() => {
           </li>
         ))}
         <li>
-          Ukupna cijea: {calculateTotalPrice()} €
+          Ukupna cijea: {totalAmount} €
         </li>
       </ul>
     </div>

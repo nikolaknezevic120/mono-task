@@ -17,7 +17,7 @@ const OrderDetails = observer(() => {
 
   return (
     <div>
-      <h2>User Information:</h2>
+      <h2>Unesite svoje podatke:</h2>
       <form className="form-container" onSubmit={handleOrderClick}>
         <label>
           First Name:
